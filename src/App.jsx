@@ -162,6 +162,35 @@ dialog{width:94%;padding:16px}
 :root[data-theme="light"] .glow{mix-blend-mode:normal}:root[data-theme="light"] .g1{opacity:.55}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .glow{mix-blend-mode:normal}}
 @media (hover:none),(pointer:coarse){.glow{display:none}}
+.hl{max-width:1100px;margin:0 auto;text-align:left}
+.hl .row,.hl .chips{justify-content:flex-start;margin-left:0}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;margin-top:10px}
+.livebar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:9px 16px;border:1px solid var(--bd);border-radius:12px;background:color-mix(in srgb,var(--sf) 80%,transparent);font-weight:600;font-size:14px}
+.pill b{color:var(--ne)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gr);box-shadow:0 0 10px var(--gr)}
+.seg{display:inline-flex;padding:4px;border:1px solid var(--bd);border-radius:12px;background:var(--sf)}
+.seg button{border:0;background:transparent;border-radius:8px;padding:6px 14px;min-height:34px}
+.seg button.on{background:var(--pr);color:#fff;box-shadow:0 0 12px var(--pr)}
+.hv{position:relative;transform:rotate(3deg);border-radius:22px;border:1px solid var(--bd);overflow:hidden;aspect-ratio:4/3.3;background:radial-gradient(circle at 70% 25%,rgba(139,92,246,.5),transparent 60%),var(--sf);box-shadow:0 20px 60px -10px rgba(139,92,246,.55)}
+.hv svg,.hv img{width:100%;height:100%;object-fit:cover;display:block}
+.hb{position:absolute;left:14px;right:14px;bottom:14px;display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--bd);border-radius:14px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(8px)}
+.hb small{color:var(--rd);font-weight:700;letter-spacing:.06em}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1100px;margin:0 auto;padding:0 18px}
+.fc{display:flex;gap:14px;align-items:center;cursor:pointer}
+.fi{width:44px;height:44px;flex:0 0 44px;border-radius:12px;display:grid;place-items:center;background:rgba(139,92,246,.2);font-size:22px}
+.map{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--bd);background:#0c0a14}
+.map svg{display:block;width:100%;height:auto}.map iframe{display:block;width:100%;height:360px;border:0}
+.ping{transform-box:fill-box;transform-origin:center;animation:pg 2s ease-out infinite}
+@keyframes pg{from{transform:scale(.4);opacity:.9}to{transform:scale(2.6);opacity:0}}
+.xp{height:10px;border-radius:6px;background:var(--bd);overflow:hidden}
+.xp i{display:block;height:100%;background:linear-gradient(90deg,var(--pr),var(--ne))}
+.row2{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd);flex-wrap:wrap}
+#acc.av{width:42px;max-width:none;padding:0;border-radius:50%;position:relative;font-weight:700}
+#acc.av::after{content:"";position:absolute;right:0;bottom:0;width:10px;height:10px;border-radius:50%;background:var(--gr);border:2px solid var(--bg)}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+@media (prefers-reduced-motion:reduce){.ping{animation:none}}
+@media (max-width:860px){.hgrid{grid-template-columns:1fr}.hl{text-align:center}.hl .row,.hl .chips{justify-content:center;margin-left:auto;margin-right:auto}.hv{transform:none;max-width:440px;margin:0 auto;width:100%}.livebar{justify-content:center}}
 `;
 
 const L = {
@@ -169,14 +198,27 @@ const L = {
   uz: { nHome: "Bosh sahifa", nArena: "PC Arena", nPrices: "Narxlar", nContact: "Aloqa", h1: "WELCOME TO EMPIRE", sub: "ENTER THE WORLD OF GAMING", book: "BOOK YOUR PC", view: "VIEW PRICES", demo: "Demo rejim: ma’lumotlar faqat shu brauzerda saqlanadi. Haqiqiy sinxronlash Supabase bilan keladi.", AVAILABLE: "BO‘SH", OCCUPIED: "BAND", RESERVED: "BRON QILINGAN", OFFLINE: "OFFLAYN", left: "qoldi", reserve: "Bron qilish", extend: "+1 soat", start: "Boshlanish", dur: "Davomiyligi", confirm: "Bronni tasdiqlash", close: "Yopish", all: "Hammasi", hr: "soatiga", addr: "Manzil va telefon: administrator kiritadi", hours: "Ish vaqti: administrator kiritadi", busy: "Ziddiyat: bu vaqt band.", done: "Bron yaratildi №", past: "Hozirdan keyingi vaqtni tanlang.", extbad: "Uzaytirish boshqa bron bilan to‘qnashadi.", acc: "Kirish / Ro‘yxatdan o‘tish", accReg: "Akkaunt ochish", name: "Ism va familiya", phone: "Telefon", pass: "Parol (kamida 6 belgi)", create: "Akkaunt ochish", bonus: "Yangi o‘yinchilarga: 1 soat tekin!", mins: "daq", logout: "Chiqish", bad: "Ism, telefon va parolni tekshiring.", free: "TEKIN", freeUsed: "bonus", promo: "Promo kod", apply: "Qo‘llash", promoOk: "Promo kod qabul qilindi:", promoBad: "Bunday promo kod yo‘q.", promoUsed: "Bu promo koddan allaqachon foydalangansiz." },
   en: { nHome: "Home", nArena: "PC Arena", nPrices: "Prices", nContact: "Contact", h1: "WELCOME TO EMPIRE", sub: "ENTER THE WORLD OF GAMING", book: "BOOK YOUR PC", view: "VIEW PRICES", demo: "Demo mode: data and bookings live only in this browser. Real sync arrives with Supabase.", AVAILABLE: "AVAILABLE", OCCUPIED: "OCCUPIED", RESERVED: "RESERVED", OFFLINE: "OFFLINE", left: "remaining", reserve: "Reserve", extend: "+1 hour", start: "Start", dur: "Duration", confirm: "Confirm booking", close: "Close", all: "All", hr: "per hour", addr: "Address and phone: set by the administrator", hours: "Opening hours: set by the administrator", busy: "Conflict: that time is already taken.", done: "Booking created #", past: "Pick a time from now onward.", extbad: "Extension conflicts with another booking.", acc: "Log in / Sign up", accReg: "Create account", name: "Full name", phone: "Phone", pass: "Password (min. 6 characters)", create: "Create account", bonus: "New players get 1 hour free!", mins: "min", logout: "Log out", bad: "Check name, phone and password.", free: "FREE", freeUsed: "bonus", promo: "Promo code", apply: "Apply", promoOk: "Promo code applied:", promoBad: "This promo code doesn’t exist.", promoUsed: "You already used this promo code." },
 };
+Object.assign(L.ru, { nTour: "Турниры", nTop: "Топ", nProf: "Профиль", liveA: "В EMPIRE свободно", now: "Сейчас", in2h: "Через 2 часа", liveNote: "Занятость обновляется в реальном времени", topDev: "ТОП ДЕВАЙСЫ", f1t: "Кибертурниры", f1d: "Смотри расписание и участвуй", f2t: "Уровни и прогресс", f2d: "Зарабатывай XP за каждую бронь", mapT: "ИНТЕРАКТИВНАЯ КАРТА", mapS: "Где найти EMPIRE", addrSet: "Адрес укажет администратор", route: "Построить маршрут", demo2: "Демо: турниры и рейтинг — примеры.", slots: "Мест", join: "Участвовать", joined: "Вы участвуете", level: "Уровень", bonusLeft: "Бонусное время", hist: "История броней", noHist: "Пока нет броней." });
+Object.assign(L.uz, { nTour: "Turnirlar", nTop: "Top", nProf: "Profil", liveA: "EMPIRE da bo‘sh:", now: "Hozir", in2h: "2 soatdan keyin", liveNote: "Band-bo‘shlik real vaqtda yangilanadi", topDev: "TOP QURILMALAR", f1t: "Kiber turnirlar", f1d: "Jadvalni ko‘ring va qatnashing", f2t: "Darajalar va yutuqlar", f2d: "Har bir bron uchun XP to‘plang", mapT: "INTERAKTIV XARITA", mapS: "EMPIRE qayerda joylashgan", addrSet: "Manzilni administrator kiritadi", route: "Marshrut qurish", demo2: "Demo: turnirlar va reyting — namunalar.", slots: "O‘rinlar", join: "Qatnashish", joined: "Siz qatnashyapsiz", level: "Daraja", bonusLeft: "Bonus vaqt", hist: "Bronlar tarixi", noHist: "Hozircha bron yo‘q." });
+Object.assign(L.en, { nTour: "Tournaments", nTop: "Top", nProf: "Profile", liveA: "Free at EMPIRE:", now: "Now", in2h: "In 2 hours", liveNote: "Availability updates in real time", topDev: "TOP DEVICES", f1t: "Cyber tournaments", f1d: "Check the schedule and join", f2t: "Levels and progress", f2d: "Earn XP for every booking", mapT: "INTERACTIVE MAP", mapS: "Where to find EMPIRE", addrSet: "Address set by the administrator", route: "Get directions", demo2: "Demo: tournaments and ranking are samples.", slots: "Slots", join: "Join", joined: "You’re in", level: "Level", bonusLeft: "Bonus time", hist: "Booking history", noHist: "No bookings yet." });
+Object.assign(L.ru, { esT: "Киберспорт", esS: "Турниры зоны BOOTCAMP: записывайся и зарабатывай XP" });
+Object.assign(L.uz, { esT: "Kibersport", esS: "BOOTCAMP zonasi turnirlari: yoziling va XP to‘plang" });
+Object.assign(L.en, { esT: "Esports", esS: "BOOTCAMP tournaments: sign up and earn XP" });
+const ES_ICON = { cs2: "🎯", dota: "🛡️", val: "⚔️" };
 const ZONES = {
   STANDARD: { p: 15000, s: "i5 · RTX 3060 · 16GB · 165Hz" },
   VIP: { p: 25000, s: "i7 · RTX 4070 · 32GB · 240Hz" },
   BOOTCAMP: { p: 35000, s: "i9 · RTX 4080 · 32GB · 360Hz" },
 };
 const PROMO = { EMPIRE10: 10, GAMER20: 20, VIP15: 15 };
-const VIEWS = ["home", "arena", "prices", "contact"];
-const NAV = { home: "nHome", arena: "nArena", prices: "nPrices", contact: "nContact" };
+const VIEWS = ["home", "arena", "prices", "tour", "top", "prof", "contact"];
+const NAV = { home: "nHome", arena: "nArena", prices: "nPrices", tour: "nTour", top: "nTop", prof: "nProf", contact: "nContact" };
+// Club info: fill in the real address/phone. "map" = a Google Maps embed URL (optional).
+const CLUB = { address: "", phone: "", map: "" };
+const HERO_IMG = ""; // put a real photo URL here to replace the drawing
+const LOC = { ru: "ru-RU", uz: "uz-UZ", en: "en-GB" };
+const TOURS = [{ id: "cs2", g: "Counter-Strike 2", d: 2, sl: [11, 16] }, { id: "dota", g: "Dota 2", d: 5, sl: [7, 16] }, { id: "val", g: "Valorant", d: 9, sl: [5, 10] }];
+const DEMO_TOP = [["Shadow", 1240], ["Nova", 980], ["Blaze", 760], ["Viper", 540], ["Ghost", 320]];
 const GAMES = ["Counter-Strike 2", "Dota 2", "Valorant", "PUBG", "GTA V", "Fortnite"];
 
 const fmt = (n) => n.toLocaleString("ru-RU") + " UZS";
@@ -276,7 +318,7 @@ function AuthDialog({ t, onCreate, onClose }) {
   const submit = (close) => {
     const p = ph.replace(/\D/g, "").replace(/^998(?=\d{9}$)/, "");
     if (n.trim().length < 2 || p.length !== 9 || pw.length < 6) return setM(t("bad"));
-    onCreate({ name: n.trim(), phone: "+998" + p, free: 60, used: [] });
+    onCreate({ name: n.trim(), phone: "+998" + p, free: 60, used: [], xp: 0, hist: [], tours: [] });
     close();
   };
   return (
@@ -347,6 +389,27 @@ function Bg() {
   );
 }
 
+function ClubMap({ t }) {
+  if (CLUB.map) return <div className="map"><iframe title="EMPIRE" src={CLUB.map} loading="lazy" /></div>;
+  return (
+    <div className="map">
+      <svg viewBox="0 0 800 340" aria-hidden="true">
+        <rect width="800" height="340" fill="#0c0a14" />
+        <g stroke="#3a2b57" strokeWidth="1" opacity=".6">{[...Array(12)].map((_, i) => <path key={i} d={`M${i * 70} 0L${i * 70 - 90} 340`} />)}</g>
+        <g stroke="#7a4518" strokeWidth="2.5" fill="none" opacity=".75">
+          <path d="M0 250C150 220 260 260 400 170S650 120 800 150" /><path d="M120 0C160 120 220 200 300 340" />
+          <path d="M560 0C540 100 600 220 520 340" /><path d="M0 90C200 110 420 60 800 80" />
+        </g>
+        <g transform="translate(400 160)">
+          <circle className="ping" r="26" fill="#8b5cf6" /><circle r="14" fill="#8b5cf6" stroke="#22d3ee" strokeWidth="3" />
+          <text y="5" textAnchor="middle" fontSize="14" fontWeight="700" fill="#fff">E</text>
+        </g>
+      </svg>
+      <div className="pill" style={{ position: "absolute", left: 12, top: 12 }}>📍 EMPIRE · {CLUB.address || t("addrSet")}</div>
+    </div>
+  );
+}
+
 export default function App() {
   const [lang, setLang] = useState(() => load("lang", "ru"));
   const [theme, setTheme] = useState(() => load("theme", null));
@@ -357,6 +420,7 @@ export default function App() {
   const [user, setUser] = useState(() => load("emp_user", null));
   const [bookId, setBookId] = useState(null);
   const [auth, setAuth] = useState(false);
+  const [when, setWhen] = useState("now");
   const t = (k) => L[lang][k] || k;
 
   useEffect(() => { const i = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(i); }, []);
@@ -378,9 +442,18 @@ export default function App() {
   };
   const onSave = (id, booking, dur, code) => {
     setPcs((ps) => ps.map((x) => (x.id === id ? { ...x, bk: [...x.bk, booking] } : x)));
-    saveUser({ ...user, free: user.free - Math.min(user.free, dur), used: code ? [...(user.used || []), code] : user.used });
+    saveUser({ ...user, free: user.free - Math.min(user.free, dur), used: code ? [...(user.used || []), code] : user.used, xp: (user.xp || 0) + Math.max(5, Math.round(dur / 6)), hist: [{ n: booking.n, pc: id, s: booking.s, dur }, ...(user.hist || [])].slice(0, 20) });
   };
   const bookPc = pcs.find((p) => p.id === bookId);
+  const tt = when === "now" ? now : now + 72e5;
+  const freeN = pcs.filter((p) => !p.off && !p.bk.some((b) => b.s <= tt && tt < b.e)).length;
+  const xp = user?.xp || 0, lvl = Math.floor(xp / 100) + 1;
+  const board = [...DEMO_TOP.map(([n, x]) => ({ n, x })), ...(user ? [{ n: user.name, x: xp, me: 1 }] : [])].sort((a, b) => b.x - a.x);
+  const joinTour = (id) => {
+    if (!user) return setAuth(true);
+    if ((user.tours || []).includes(id)) return;
+    saveUser({ ...user, tours: [...(user.tours || []), id], xp: xp + 25 });
+  };
 
   return (
     <>
@@ -388,7 +461,7 @@ export default function App() {
       <Bg />
       <header>
         <a className="logo" href="#home" style={{ textDecoration: "none" }} onClick={(e) => { e.preventDefault(); setView("home"); }}>EMPIRE</a>
-        <button id="acc" className="p" onClick={onAcc}>{user ? `${user.name.split(" ")[0]} · ${user.free} ${t("mins")}` : t("acc")}</button>
+        {user ? <button id="acc" className="p av" onClick={() => setView("prof")} aria-label={t("nProf")}>{user.name[0].toUpperCase()}</button> : <button id="acc" className="p" onClick={onAcc}>{t("acc")}</button>}
         <select id="lang" aria-label="Language" value={lang} onChange={(e) => setLang(e.target.value)}>
           <option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option>
         </select>
@@ -397,16 +470,59 @@ export default function App() {
       </header>
 
       {view === "home" && (
-        <div className="hero view cur" id="home">
-          <h1>{t("h1")}</h1>
-          <p>{t("sub")}</p>
-          <div className="row">
-            <button className="p" onClick={() => setView("arena")}>{t("book")}</button>
-            <button onClick={() => setView("prices")}>{t("view")}</button>
+        <>
+          <div className="hero view cur" id="home">
+            <div className="hl">
+              <div className="livebar">
+                <span className="pill"><i className="dot" />{t("liveA")} <b>{freeN} PC</b> {t(when === "now" ? "now" : "in2h").toLowerCase()}</span>
+                <span className="seg">
+                  <button className={when === "now" ? "on" : ""} onClick={() => setWhen("now")}>{t("now")}</button>
+                  <button className={when === "2h" ? "on" : ""} onClick={() => setWhen("2h")}>{t("in2h")}</button>
+                </span>
+              </div>
+              <small>{t("liveNote")}</small>
+              <div className="hgrid">
+                <div>
+                  <h1>{t("h1")}</h1>
+                  <p>{t("sub")}</p>
+                  <div className="row">
+                    <button className="p" onClick={() => setView("arena")}>{t("book")}</button>
+                    <button onClick={() => setView("prices")}>{t("view")}</button>
+                  </div>
+                  <div className="chips">{GAMES.map((g) => <span key={g}>{g}</span>)}</div>
+                  <button className="bn" onClick={() => (user ? setView("arena") : setAuth(true))}>{t("bonus")}</button>
+                </div>
+                <div className="hv">
+                  {HERO_IMG ? <img src={HERO_IMG} alt="EMPIRE" /> : (
+                    <svg viewBox="0 0 400 320" fill="none" aria-hidden="true">
+                      <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#8b5cf6" /><stop offset="1" stopColor="#22d3ee" /></linearGradient></defs>
+                      <rect x="70" y="40" width="260" height="150" rx="12" stroke="url(#hg)" strokeWidth="4" />
+                      <rect x="82" y="52" width="236" height="126" rx="6" fill="url(#hg)" opacity=".22" />
+                      <path d="M200 190v34M150 226h100" stroke="url(#hg)" strokeWidth="4" />
+                      <rect x="95" y="244" width="210" height="22" rx="6" stroke="url(#hg)" strokeWidth="3" />
+                      <circle cx="200" cy="115" r="26" stroke="#22d3ee" strokeWidth="2" />
+                      <path d="M200 82v16M200 132v16M167 115h16M217 115h16" stroke="#22d3ee" strokeWidth="2" />
+                    </svg>
+                  )}
+                  <div className="hb"><span className="fi">⚡</span><div><small>{t("topDev")}</small><br /><b>{ZONES.BOOTCAMP.s}</b></div></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="chips">{GAMES.map((g) => <span key={g}>{g}</span>)}</div>
-          <button className="bn" onClick={() => (user ? setView("arena") : setAuth(true))}>{t("bonus")}</button>
-        </div>
+          <div className="feats">
+            <div className="card fc" onClick={() => setView("tour")}><span className="fi">🏆</span><div><b>{t("f1t")}</b><br /><small>{t("f1d")}</small></div></div>
+            <div className="card fc" onClick={() => setView("prof")}><span className="fi">⚡</span><div><b>{t("f2t")}</b><br /><small>{t("f2d")}</small></div></div>
+          </div>
+          <section>
+            <h2>{t("mapT")}</h2>
+            <small>{t("mapS")}</small><br /><br />
+            <ClubMap t={t} />
+            <div className="row2">
+              <span>📍 {CLUB.address || t("addrSet")}{CLUB.phone ? " · " + CLUB.phone : ""}</span>
+              <button className="p" disabled={!CLUB.address} onClick={() => window.open("https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(CLUB.address), "_blank")}>{t("route")}</button>
+            </div>
+          </section>
+        </>
       )}
 
       {view === "arena" && (
@@ -431,6 +547,29 @@ export default function App() {
               );
             })}
           </div>
+          {zone === "BOOTCAMP" && (
+            <div style={{ marginTop: 32 }}>
+              <h2 style={{ fontSize: 30 }}>{t("esT")}</h2>
+              <small>{t("esS")}</small>
+              <div className="note" style={{ margin: "12px 0" }}>{t("demo2")}</div>
+              <div className="grid">
+                {TOURS.map((x) => {
+                  const j = (user?.tours || []).includes(x.id);
+                  return (
+                    <div key={x.id} className="card fc" style={{ cursor: "default" }}>
+                      <span className="fi">{ES_ICON[x.id]}</span>
+                      <div>
+                        <b style={{ fontFamily: "Rajdhani", fontSize: 22 }}>{x.g}</b><br />
+                        <small>{new Date(Date.now() + x.d * 864e5).toLocaleDateString(LOC[lang])} · {t("slots")} {x.sl[0]}/{x.sl[1]}</small><br />
+                        <button className="p" style={{ marginTop: 8 }} disabled={j} onClick={() => joinTour(x.id)}>{j ? t("joined") : t("join")}</button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <br /><button onClick={() => setView("tour")}>{t("nTour")} →</button>
+            </div>
+          )}
         </section>
       )}
 
@@ -450,10 +589,62 @@ export default function App() {
         </section>
       )}
 
+      {view === "tour" && (
+        <section className="view cur">
+          <h2>{t("nTour")}</h2>
+          <div className="note">{t("demo2")}</div><br />
+          <div className="grid">
+            {TOURS.map((x) => {
+              const j = (user?.tours || []).includes(x.id);
+              return (
+                <div key={x.id} className="card">
+                  <b style={{ fontFamily: "Rajdhani", fontSize: 22 }}>{x.g}</b><br />
+                  <small>{new Date(Date.now() + x.d * 864e5).toLocaleDateString(LOC[lang])} · {t("slots")} {x.sl[0]}/{x.sl[1]}</small><br />
+                  <button className="p" style={{ marginTop: 8 }} disabled={j} onClick={() => joinTour(x.id)}>{j ? t("joined") : t("join")}</button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {view === "top" && (
+        <section className="view cur">
+          <h2>{t("nTop")}</h2>
+          <div className="note">{t("demo2")}</div><br />
+          <div className="card">
+            {board.map((r, i) => (
+              <div key={r.n + i} className="row2" style={r.me ? { color: "var(--ne)", fontWeight: 700 } : null}>
+                <span>{i + 1}. {r.n}</span><span>LVL {Math.floor(r.x / 100) + 1} · {r.x} XP</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {view === "prof" && (
+        <section className="view cur">
+          <h2>{t("nProf")}</h2>
+          {!user ? <button className="p" onClick={() => setAuth(true)}>{t("acc")}</button> : (
+            <div className="card">
+              <h3>{user.name}</h3><small>{user.phone}</small>
+              <p>{t("level")} <b className="price">{lvl}</b> · {xp % 100}/100 XP</p>
+              <div className="xp"><i style={{ width: (xp % 100) + "%" }} /></div>
+              <p>{t("bonusLeft")}: <b>{user.free} {t("mins")}</b></p>
+              <h3>{t("hist")}</h3>
+              {(user.hist || []).length ? user.hist.slice(0, 8).map((h) => (
+                <div key={h.n} className="row2"><span>{h.pc} · {h.n}</span><span>{new Date(h.s).toLocaleString(LOC[lang], { dateStyle: "short", timeStyle: "short" })} · {h.dur} {t("mins")}</span></div>
+              )) : <small>{t("noHist")}</small>}
+              <br /><button onClick={() => saveUser(null)}>{t("logout")}</button>
+            </div>
+          )}
+        </section>
+      )}
+
       {view === "contact" && (
         <section className="view cur" id="contact">
           <h2>{t("nContact")}</h2>
-          <div className="card">{t("addr")}<br />{t("hours")}</div>
+          <div className="card">{CLUB.address || t("addr")}{CLUB.phone ? " · " + CLUB.phone : ""}<br />{t("hours")}</div>
         </section>
       )}
 
